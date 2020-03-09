@@ -1,0 +1,56 @@
+{
+  "homepage": "https://spchung.github.io/trees",
+  "name": "trees",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^7.2.1",
+    "jspdf": "^1.5.3",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-rangeslider": "^2.2.0",
+    "react-scripts": "^3.4.0",
+    "styled-components": "^5.0.0"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "flow": "flow"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "flow-bin": "^0.119.0",
+    "gh-pages": "^2.2.0"
+  },
+  "description": "Research Assistant to Professor Bruce Rannala.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brannala/bppv.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brannala/bppv/issues"
+  }
+}
