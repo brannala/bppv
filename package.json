@@ -1,6 +1,6 @@
 {
-  "homepage": "https://spchung.github.io/trees",
-  "name": "trees",
+  "homepage": "https://brannala.github.io/bppv",
+  "name": "bppv",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
