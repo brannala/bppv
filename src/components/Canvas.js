@@ -20,7 +20,6 @@ class Canvas extends React.Component{
             maxNameLength : 0,
             RelScaling : this.props.relscal,
             Cladogram : this.props.clado,
-            updateMe: true,
             currTree: 0,
             DisplayTheta:false
         };
@@ -85,7 +84,7 @@ class Canvas extends React.Component{
                 }
                 else if(e.keyCode === 39){ //right arrow
                     e.preventDefault();
-                    if(this.state.currTree < this.state.treeVec.length){
+                    if(this.state.currTree < this.state.treeVec.length-1){
                         this.setState({currTree: this.state.currTree+1})
                         this.ctx.clearRect(0,0,this.ctx.canvas.width,this.ctx.canvas.height);
                         this.utils.drawOneTree(this.state.currTree,this.state.treeVec, this.state.Cladogram, this.DisplayTheta, this.canvas,this.ctx, this.state.RelScaling, this.ctx.canvas.height*0.9-this.utils.maxNameLength);
@@ -124,11 +123,11 @@ class Canvas extends React.Component{
 
     // Will only be called when we receive new data 
     init = () => {
-        if(this.state.treeVec[this.state.treeVec.length-2].match(";") === null){
-            this.treeVec.pop();
-        }
+        // if(this.state.treeVec[this.state.treeVec.length-2].match(";") === null){
+        //     this.treeVec.pop();
+        // }
         // Draw first tree  
-        let noTr = this.state.treeVec.length-2;
+        let noTr = this.state.treeVec.length;
         this.utils.getMaxHeight(noTr, this.state.treeVec);
         this.utils.drawOneTree(this.state.currTree,this.state.treeVec, this.state.Cladogram,this.DisplayTheta, this.canvas,this.ctx, this.state.RelScaling, this.ctx.canvas.height*0.9-this.utils.maxNameLength);
     }
@@ -216,7 +215,7 @@ class Canvas extends React.Component{
         return(
             <div>
                 <canvas ref="canvas" width={window.innerWidth} height={(window.innerHeight*0.75)} />
-                <Slide ref="slider" currTree={currTree} onChange={value => this.slideToNextTree(value)} treeLength={treeVec.length}/>
+                <Slide ref="slider" receivedData={this.state.receivedData} currTree={currTree} onChange={value => this.slideToNextTree(value)} treeLength={treeVec.length}/>
                 <div className="display-save-group">
                     <button className="display-btn" onClick={this.toggleIndexDisplay}>Swap Nodes</button>
                     &nbsp;&nbsp;

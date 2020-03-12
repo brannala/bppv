@@ -5,7 +5,8 @@ class Slide extends React.Component {
         super(props);
         this.state = {
             value: props.currTree,
-            maxLen: 500
+            maxLen: 0,
+            receivedData: false
         }
         this.val=this.props.currTree;
         this.step=50;
@@ -18,12 +19,18 @@ class Slide extends React.Component {
 
     static getDerivedStateFromProps(props, state) {
       return {
-        maxLen : props.treeLength
+        maxLen : props.treeLength,
+        receivedData : props.receivedData
       }
     }
 
     onChange = (i) => {
       this.props.onChange(i);
+      console.log(this.state.maxLen)
+    }
+
+    componentDidUpdate(){
+
     }
 
     componentDidMount(){
@@ -41,13 +48,13 @@ class Slide extends React.Component {
       <div>
         <label>
           <div style={{textAlign:'right'}}>
-            {this.state.value}/{this.state.maxLen}
+            {this.state.receivedData? (<div>{`${this.state.value}/${this.state.maxLen-1}`}</div>) : (<div>0/0</div>)}
           </div>
           <input 
             className="slider"
             id="typeinp" 
             type="range" 
-            min="0" max={this.state.maxLen} 
+            min="1" max={(this.state.maxLen-1)} 
             value={this.state.value} 
             onChange={this.handleChange}
             step={1}/>
