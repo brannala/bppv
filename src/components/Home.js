@@ -180,7 +180,7 @@ class Home extends React.Component{
     render(){
         return(
             <div style={{paddingLeft:30, paddingTop:0, paddingRight:30, paddingBottom:30}}> 
-                <div className='title'>BBP TREE VISUALIZER</div> 
+                <div className='title'>BBP TREE VISUALIZER 2</div> 
                 <div>&nbsp;</div>
                 <Canvas 
                     isFireFox = {this.isFireFox} 
