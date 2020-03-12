@@ -194,9 +194,9 @@ class Home extends React.Component{
                     <input ref ="f" type ='file' onChange={this.handleUpload} autoComplete="off"/>
                 </label>
                 <div className="scaling-btn-group">
-                    <Checkbox text="Absolute Scaling" onChange={this.handleAbsScaling} checked={this.state.AbsScaling}/>
+                    <Checkbox text="Relative Scaling" onChange={this.handleAbsScaling} checked={this.state.AbsScaling}/>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                    <Checkbox text="Relative Scaling" onChange={this.handleRelScalingChange} checked={this.state.RelScaling} />
+                    <Checkbox text="Absolute Scaling" onChange={this.handleRelScalingChange} checked={this.state.RelScaling} />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                     <Checkbox text="Cladogram" onChange={this.handleCladogramChange} checked={this.state.Cladogram} />
                 </div>
