@@ -30,7 +30,9 @@ class Slide extends React.Component {
     }
 
     componentDidUpdate(){
-
+      if(this.state.receivedData){
+        console.log("new file ")
+      }
     }
 
     componentDidMount(){
