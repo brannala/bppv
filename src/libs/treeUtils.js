@@ -61,6 +61,9 @@ function TreeUtils(){
         var newick=Newtree.match(/((\+|-)?([0-9]+\.[0-9]*|\.[0-9]+)([eE](\+|-)?[0-9]+)?)|(\w+)|(\()|(\))|(,)/g); // ([eE][-+]?[0-9]+)?) /g);
         // get tree height
         var blsum=0;
+        if (!newick){
+            return;
+        }
         blsum += Number(newick[1]); 
         var j=0;
         for(var k=2; k<newick.length; k++){
@@ -186,10 +189,12 @@ function TreeUtils(){
         if(value < treeVec.length){
             // 1 - make tree structure from input text 
             if(!useCladogram){
-                this.treeFromNewick(treeVec[value],true, context);
+                if(treeVec[value])
+                    this.treeFromNewick(treeVec[value],true, context);
             }
             else{
-                this.treeFromNewick(treeVec[value],false, context);
+                if(treeVec[value])
+                    this.treeFromNewick(treeVec[value],false, context);
             }
         
             // 2 
@@ -332,6 +337,8 @@ function TreeUtils(){
     }
 
     this.getMaxLenSN = (sN, context) => {
+        if(sN === null) return;
+
         let mLen = 0;
         let iD = 0;
 

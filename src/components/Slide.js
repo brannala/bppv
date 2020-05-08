@@ -26,12 +26,12 @@ class Slide extends React.Component {
 
     onChange = (i) => {
       this.props.onChange(i);
-      console.log(this.state.maxLen)
+      // console.log(this.state.maxLen)
     }
 
     componentDidUpdate(){
       if(this.state.receivedData){
-        console.log("new file ")
+        // console.log("new file ")
       }
     }
 
@@ -45,6 +45,11 @@ class Slide extends React.Component {
       })
     }
 
+    reset = () =>{
+      this.setState({value:0});
+      this.props.onChange(0);
+    }
+
   render() {
     return (
       <div>
@@ -56,7 +61,7 @@ class Slide extends React.Component {
             className="slider"
             id="typeinp" 
             type="range" 
-            min="1" max={(this.state.maxLen-1)} 
+            min="0" max={(this.state.maxLen-1)} 
             value={this.state.value} 
             onChange={this.handleChange}
             step={1}/>

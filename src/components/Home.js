@@ -20,6 +20,7 @@ class Home extends React.Component{
     }
 
     handleUpload = (ev) => {
+        this.refs.canvas.reset();
         if( window.File && window.FileReader && window.FileList && window.Blob ){
             var reader = new FileReader();
             var file = document.querySelector('input[type=file]').files[0];
@@ -177,18 +178,21 @@ class Home extends React.Component{
         return true;
     }
 
+
     render(){
         return(
             <div style={{paddingLeft:30, paddingTop:0, paddingRight:30, paddingBottom:30}}> 
                 <div className='title'>BBP TREE VISUALIZER</div> 
                 <div>&nbsp;</div>
                 <Canvas 
+                    ref="canvas"
                     isFireFox = {this.isFireFox} 
                     received={this.state.uploaded} 
                     trees = {this.state.trees} 
                     clado = {this.state.Cladogram} 
                     relscal = {this.state.RelScaling} 
                     refresh = {this.handleRefresh}
+                    reset = {this.reset}
                 />
                 <label className="file-inp">
                     <input ref ="f" type ='file' onChange={this.handleUpload} autoComplete="off"/>

@@ -73,6 +73,7 @@ class Canvas extends React.Component{
 
         window.addEventListener("keydown", e => {
             if(this.utils.TREEROOT){
+                // console.log(this.state.currTree)
                 if(e.keyCode === 37){  //left arrow 
                     e.preventDefault();
                     if(this.state.currTree > 0){
@@ -123,10 +124,12 @@ class Canvas extends React.Component{
 
     // Will only be called when we receive new data 
     init = () => {
-        // if(this.state.treeVec[this.state.treeVec.length-2].match(";") === null){
-        //     this.treeVec.pop();
-        // }
+        /////////
+        if(this.state.treeVec[this.state.treeVec.length-2].match(";") === null){
+            this.treeVec.pop();
+        }
         // Draw first tree  
+        /////////
         let noTr = this.state.treeVec.length;
         this.utils.getMaxHeight(noTr, this.state.treeVec);
         this.utils.drawOneTree(this.state.currTree,this.state.treeVec, this.state.Cladogram,this.DisplayTheta, this.canvas,this.ctx, this.state.RelScaling, this.ctx.canvas.height*0.9-this.utils.maxNameLength);
@@ -208,6 +211,11 @@ class Canvas extends React.Component{
         if(this.DisplayIndex){
             this.runDisplayIndex(this.state.Cladogram, this.state.RelScaling, this.ctx);
         }
+    }
+
+    //slide index reset 
+    reset = () => {
+        this.refs.slider.reset();
     }
 
     render(){
